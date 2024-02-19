@@ -1,9 +1,9 @@
 import psycopg2
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 
 app = Flask(__name__)
-
+app.secret_key = 'svozv'
 def db_conn():
     conn = psycopg2.connect(database = "postgres",host ="localhost", user ="postgres", password ="123", port = "5432")
     return conn
@@ -25,6 +25,11 @@ def create():
     email = request.form['email']
     phone_number = request.form['phone']
     password = request.form['password']
+    confirm_password = request.form['confirm-password']
+    if password != confirm_password:
+        flash('Пароли не совпадают. Пожалуйста, попробуйте снова.')
+        return redirect(url_for('registration'))
+
     cur.execute('''INSERT INTO person (person_name, person_sname, person_email, person_tnumber, person_password) VALUES(%s, %s, %s, %s, %s)''',(name,last_name,email, phone_number, password))
     conn.commit()
     cur.close()
