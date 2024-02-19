@@ -18,7 +18,7 @@
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
-          <div>{{ message }}</div>
+          <div class="alert">{{ message }}</div>
         {% endfor %}
       {% endif %}
     {% endwith %}
@@ -28,7 +28,7 @@
       <form action = '/create' method="post">
         <h2>Регистрация</h2>
         <div class="form-control">
-          <label for="name">Имя</label>
+          <label for="name">Имя*</label>
           <input
             type="text"
             name="name"
@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-control">
-          <label for="last-name">Фамилия</label>
+          <label for="last-name">Фамилия*</label>
           <input
             type="text"
             name="last-name"
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-control">
-          <label for="email">Почта</label>
+          <label for="email">Почта*</label>
           <input
             type="text"
             name = 'email'
@@ -61,7 +61,7 @@
         </div>
 
         <div class="form-control">
-          <label for="phone">Номер телефона</label>
+          <label for="phone">Номер телефона*</label>
           <input
             type="tel"
             name = 'phone'
@@ -72,13 +72,13 @@
         </div>
 
         <div class="form-control">
-          <label for="password">Пароль</label>
+          <label for="password">Пароль*</label>
           <input type="password" name="password" placeholder="Придумайте пароль" autocomplete="off"/>
           <i class="icon"></i>
         </div>
         
         <div class="form-control">
-          <label for="confirm-password">Подтвердите пароль</label>
+          <label for="confirm-password">Подтвердите пароль*</label>
           <input type="password" name="confirm-password" placeholder="Подтвердите ваш пароль" autocomplete="off"/>
           <i class="icon"></i>
         </div>

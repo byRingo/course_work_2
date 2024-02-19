@@ -23,7 +23,15 @@ def create():
     name = request.form['name']
     last_name = request.form['last-name']
     email = request.form['email']
+    cur.execute('SELECT * FROM person WHERE person_email = %s', (email,))
+    if cur.fetchone():
+        flash('Этот адрес электронной почты уже используется. Пожалуйста, используйте другой адрес.')
+        return redirect(url_for('registration'))
     phone_number = request.form['phone']
+    cur.execute('SELECT * FROM person WHERE person_tnumber = %s', (phone_number,))
+    if cur.fetchone():
+        flash('Этот номер телефона уже используется. Пожалуйста, используйте другой адрес.')
+        return redirect(url_for('registration'))
     password = request.form['password']
     confirm_password = request.form['confirm-password']
     if password != confirm_password:
