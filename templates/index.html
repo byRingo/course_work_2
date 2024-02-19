@@ -10,6 +10,10 @@
         <tr>
           <th>ID</th>
           <th>NAME</th>
+          <th>LAST-NAME</th>
+          <th>EMAIL</th>
+          <th>PHONE-NUMBER</th>
+          <th>PASSWORD</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +21,10 @@
         <tr>
           <td>{{ row[0]}}</td>
           <td>{{ row[1]}}</td>
+          <td>{{ row[2]}}</td>
+          <td>{{ row[3]}}</td>
+          <td>{{ row[4]}}</td>
+          <td>{{ row[5]}}</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -24,6 +32,10 @@
     <h2>Добавляем</h2>
     <form action="/create" method="post">
       <input type="text" name="name" placeholder="name" />
+      <input type="text" name="last-name" placeholder="last-name" />
+      <input type="text" name="email" placeholder="email" />
+      <input type="text" name="phone-number" placeholder="phone-number" />
+      <input type="text" name="password" placeholder="password" />
       <input type="submit" value="Create" />
     </form>
     <h2>Delete/Update</h2>
