@@ -1,68 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name = "viewport" content="width=device-width, initial-scale=1,0">
-        <link rel="stylesheet" href="registration.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
-        <title>
-            Lesnoy.dom.perm - Регистрация</title>
-    </head>
-    <body>
-       <div class="container">
-            <img src="images/RbzDhLVaB8s.jpg">
-            <form id = "mainForm" novalidate>
-                <h2>Регистрация</h2>
-                <div class="form-control">
-                    <label for="name">Имя</label>
-                    <input type="text" id="name"
-                    placeholder="Введите ваше имя"
-                    autocomplete="off">
-                    <i class="icon"></i>
-                </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/public/css/registration.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css"
+    />
+    <title>Lesnoy.dom.perm - Регистрация</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="/images/RbzDhLVaB8s.jpg"/>
+      <form method="post">
+        <h2>Регистрация</h2>
+        <div class="form-control">
+          <label for="name">Имя</label>
+          <input
+            type="text"
+            name="userName"
+            placeholder="Введите ваше имя"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
 
-                <div class="form-control">
-                    <label for="last-name">Фамилия</label>
-                    <input type="text" id="last-name"
-                    placeholder="Введите вашу фамилию"
-                    autocomplete="off">
-                    <i class="icon"></i>
-                </div>
+        <div class="form-control">
+          <label for="last-name">Фамилия</label>
+          <input
+            type="text"
+            name="userSurname"
+            placeholder="Введите вашу фамилию"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
 
-                <div class="form-control">
-                    <label for="email">Почта</label>
-                    <input type="text" id="email"
-                    placeholder="Введите вашу почту"
-                    autocomplete="off">
-                    <i class="icon"></i>
-                </div>
+        <div class="form-control">
+          <label for="email">Почта</label>
+          <input
+            type="text"
+            placeholder="Введите вашу почту"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
 
-                <div class="form-control">
-                    <label for="phone">Номер телефона</label>
-                    <input type="tel" id="phone"
-                    placeholder="Введите ваш номер телефона"
-                    autocomplete="off">
-                    <i class="icon"></i>
-                </div>
+        <div class="form-control">
+          <label for="phone">Номер телефона</label>
+          <input
+            type="tel"
+            placeholder="Введите ваш номер телефона"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
 
-                <div class="form-control">
-                    <label for="password">Пароль</label>
-                    <input type="text" id="password"
-                    placeholder="Придумайте пароль"
-                    ="off">
-                    <i class="icon"></i>
-                </div>
+        <div class="form-control">
+          <label for="password">Пароль</label>
+          <input type="text" placeholder="Придумайте пароль" ="off" />
+          <i class="icon"></i>
+        </div>
 
-                <button type ="submit">Отправить</button>
-            </form>
+        <button type="submit">Отправить</button>
+      </form>
 
-            <div id ="succesModal" class ="modal">
-                <div class="modal-contentt">
-                    <span class = "close-button">&times;</span>
-                    <h2>Успешно!</h2>
-                    <p>Вы успешно зарегистрированы.</p>
-                </div>
-            </div>
-       </div>
-    </body>
+      <div id="succesModal" class="modal">
+        <div class="modal-contentt">
+          <span class="close-button">&times;</span>
+          <h2>Успешно!</h2>
+          <p>Вы успешно зарегистрированы.</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
