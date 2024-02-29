@@ -16,7 +16,7 @@ def index():
     data = cur.fetchall()
     cur.close()
     conn.close()
-    return render_template('index_test.html', data = data)
+    return render_template('index.html', data = data)
 
 @app.route('/create', methods=['POST'])
 def create():
@@ -27,18 +27,19 @@ def create():
     conn.commit()
     cur.close()
     conn.close()
-    return redirect(url_for('index_test'))
+    return redirect(url_for('index'))
 
 @app.route('/update', methods = ['POST'])
 def update():
     conn = db_conn()
     cur = conn.cursor()
-    name = request.form['name']
 
-    cur.execute('''UPDATE testing SET name =%s WHERE id=%s''',(name,id))
+    name = request.form['name']
+    id=request.form['id']
+    cur.execute('''UPDATE testing SET name =%s WHERE id=%s''',(name,id,))
 
     conn.commit()
-    return redirect(url_for('index_test'))
+    return redirect(url_for('index'))
 
 
 @app.route('/delete', methods = ['POST'])
@@ -50,4 +51,4 @@ def delete():
     cur.execute('''DELETE FROM testing WHERE id=%s''',(id,))
 
     conn.commit()
-    return redirect(url_for('index_test'))
+    return redirect(url_for('index'))
