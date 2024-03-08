@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='registration.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css"
+    />
+    <title>Lesnoy.dom.perm - Регистрация</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="container">
+      <img src="{{ url_for('static', filename='RbzDhLVaB8s.jpg') }}" />
+      <form action = '/create' method="post">
+        <h2>Регистрация</h2>
+        <div class="form-control">
+          <label for="name">Имя*</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Введите ваше имя"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
+
+        <div class="form-control">
+          <label for="last-name">Фамилия*</label>
+          <input
+            type="text"
+            name="last-name"
+            placeholder="Введите вашу фамилию"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
+
+        <div class="form-control">
+          <label for="email">Почта*</label>
+          <input
+            type="text"
+            name = 'email'
+            placeholder="Введите вашу почту"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
+
+        <div class="form-control">
+          <label for="phone">Номер телефона*</label>
+          <input
+            type="tel"
+            name = 'phone'
+            placeholder="Введите ваш номер телефона"
+            autocomplete="off"
+          />
+          <i class="icon"></i>
+        </div>
+
+        <div class="form-control">
+          <label for="password">Пароль*</label>
+          <input type="password" name="password" placeholder="Придумайте пароль" autocomplete="off"/>
+          <i class="icon"></i>
+        </div>
+        
+        <div class="form-control">
+          <label for="confirm-password">Подтвердите пароль*</label>
+          <input type="password" name="confirm-password" placeholder="Подтвердите ваш пароль" autocomplete="off"/>
+          <i class="icon"></i>
+        </div>
+        
+        <button type="submit">Отправить</button>
+      </form>
+
+      <div id="succesModal" class="modal">
+        <div class="modal-contentt">
+          <span class="close-button">&times;</span>
+          <h2>Успешно!</h2>
+          <p>Вы успешно зарегистрированы.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
