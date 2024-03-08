@@ -2,70 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Pizdec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css"
+    />
+    <title>Lesnoy.dom.perm - Аренда Дома Пермь</title>
   </head>
   <body>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>LAST-NAME</th>
-          <th>EMAIL</th>
-          <th>PHONE-NUMBER</th>
-          <th>PASSWORD</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in data %}
-        <tr>
-          <td>{{ row[0]}}</td>
-          <td>{{ row[1]}}</td>
-          <td>{{ row[2]}}</td>
-          <td>{{ row[3]}}</td>
-          <td>{{ row[4]}}</td>
-          <td>{{ row[5]}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <h2>Добавляем</h2>
-    <form action="/create" method="post">
-      <input type="text" name="name" placeholder="name" />
-      <input type="text" name="last-name" placeholder="last-name" />
-      <input type="text" name="email" placeholder="email" />
-      <input type="text" name="phone-number" placeholder="phone-number" />
-      <input type="text" name="password" placeholder="password" />
-      <input type="submit" value="Create" />
-    </form>
-    <h2>Delete/Update</h2>
-    <table>
-      <thead style="display: block">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in data %}
-        <tr>
-          <td>
-            <form action="/update" method="post">
-              <label>{{ row[0] }}</label>
-              <input type="hidden" name="id" value="{{ row[0]}}" />
-              <input type="text" name="name" value="{{ row[1]}}" />
-              <input type="submit" value="Update" />
-            </form>
-          </td>
-          <td>
-            <form action="/delete" method="post">
-              <input type="hidden" name="id" value="{{ row[0]}}" />
-              <input type="submit" value="Delete" />
-            </form>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="{{ url_for('static', filename='RbzDhLVaB8s.jpg') }}"
+          alt="some"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li class="link"><a href="#">Главная</a></li>
+        <li class="link"><a href="#">Как добраться</a></li>
+        <li class="link"><a href="#">Прайс лист</a></li>
+        <li class="link"><a href="#">О нас</a></li>
+      </ul>
+      <a method = "get" href="{{ url_for('registration') }}" class="btn" target="_self">
+        Регистрация
+      </a>
+    </nav>
+    <header></header>
+    <main></main>
+    <footer></footer>
   </body>
 </html>

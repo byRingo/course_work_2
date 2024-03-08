@@ -5,15 +5,19 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 app = Flask(__name__)
 app.secret_key = 'svozv'
 def db_conn():
-    conn = psycopg2.connect(database = "postgres",host ="localhost", user ="postgres", password ="123", port = "5432")
+    conn = psycopg2.connect(database = "postgres",host ="localhost", user ="postgres", password ="01031979", port = "5432")
     return conn
 
 @app.route('/')
-def registration():
+def index():
     conn = db_conn()
     cur = conn.cursor()
     cur.close()
     conn.close()
+    return render_template('index.html')
+
+@app.route('/registration', methods=['GET'])
+def registration():
     return render_template('registration.html')
 
 @app.route('/create', methods=['POST'])
