@@ -15,17 +15,17 @@
     <title>Lesnoy.dom.perm - Регистрация</title>
   </head>
   <body>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+    <a method = "get" href="{{ url_for('index') }}" class = "btn">
+      Назад
+    </a>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <div class="alert">{{ message }}</div>
+    {% endfor %} {% endif %} {% endwith %}
 
     <div class="container">
       <img src="{{ url_for('static', filename='RbzDhLVaB8s.jpg') }}" />
-      <form action = '/create' method="post">
+      <form action="/create" method="post">
         <h2>Регистрация</h2>
         <div class="form-control">
           <label for="name">Имя*</label>
@@ -53,7 +53,7 @@
           <label for="email">Почта*</label>
           <input
             type="text"
-            name = 'email'
+            name="email"
             placeholder="Введите вашу почту"
             autocomplete="off"
           />
@@ -64,7 +64,7 @@
           <label for="phone">Номер телефона*</label>
           <input
             type="tel"
-            name = 'phone'
+            name="phone"
             placeholder="Введите ваш номер телефона"
             autocomplete="off"
           />
@@ -73,16 +73,26 @@
 
         <div class="form-control">
           <label for="password">Пароль*</label>
-          <input type="password" name="password" placeholder="Придумайте пароль" autocomplete="off"/>
+          <input
+            type="password"
+            name="password"
+            placeholder="Придумайте пароль"
+            autocomplete="off"
+          />
           <i class="icon"></i>
         </div>
-        
+
         <div class="form-control">
           <label for="confirm-password">Подтвердите пароль*</label>
-          <input type="password" name="confirm-password" placeholder="Подтвердите ваш пароль" autocomplete="off"/>
+          <input
+            type="password"
+            name="confirm-password"
+            placeholder="Подтвердите ваш пароль"
+            autocomplete="off"
+          />
           <i class="icon"></i>
         </div>
-        
+
         <button type="submit">Отправить</button>
       </form>
 

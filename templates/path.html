@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css"
+    />
+    <!-- leaflet css  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <title>Lesnoy.dom.perm - Аренда Дома Пермь</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="{{ url_for('static', filename='RbzDhLVaB8s.jpg') }}"
+          alt="some"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li class="link"><a  method="get" href="{{ url_for('index') }}" target="_self">Главная</a></li>
+        <li class="link"><a href="#">Как добраться</a></li>
+        <li class="link"><a href="#">Прайс лист</a></li>
+        <li class="link"><a href="#">О нас</a></li>
+      </ul>
+      <a
+        method="get"
+        href="{{ url_for('registration') }}"
+        class="btn"
+        target="_self"
+      >
+        Регистрация
+      </a>
+    </nav>
+    <header>
+      <div class = "container"
+        ><h1>Где мы находимся?</h1><p>Лесной домик находится в 20-25мин от ТЦ "Планета" в сторону Усть-Качки.
+            До нас можно добраться на 339 автобусе (до остановки Косотуриха, далее
+            пешком 10-15мин до коттеджного поселка "Тихие пруды"), который ходит от
+            центрального рынка. Так же до домика можно доехать на такси. Примерная
+            стоимость от ТЦ "Планета" 500-600р.</p>
+        </span
+      >
+    </header>
+    <div id="map">
+      <div class="leaflet-control coordinate"></div>
+    </div>
+  </body>
+</html>
+
+<!-- leaflet js  -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  var map = L.map("map").setView([57.870796, 55.841075], 16);
+var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+osm.addTo(map);
+var myIcon = L.icon({
+  iconUrl: "static/red_marker.png",
+  iconSize: [40, 40],
+});
+var singleMarker = L.marker([57.870898, 55.841075], {
+  icon: myIcon,
+  draggable: false,
+});
+var popup = singleMarker.bindPopup("Lesnoy.dom - 46-й квартал, 4 ").openPopup();
+singleMarker.addTo(map);
+
+</script>
