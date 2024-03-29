@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///<db_name>.db'
 app.secret_key = 'svozv'
 def db_conn():
-    conn = psycopg2.connect(database = "postgres",host ="localhost", user ="postgres", password ="01031979", port = "5432")
+    conn = psycopg2.connect(database = "",host ="", user ="", password ="", port = "")
     return conn
 
 @app.route('/')
