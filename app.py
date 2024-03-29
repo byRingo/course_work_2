@@ -16,6 +16,14 @@ def index():
     conn.close()
     return render_template('index.html')
 
+@app.route('/path')
+def path():
+    conn = db_conn()
+    cur = conn.cursor()
+    cur.close()
+    conn.close()
+    return render_template('path.html')
+
 @app.route('/registration', methods=['GET'])
 def registration():
     return render_template('registration.html')
