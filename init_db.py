@@ -1,6 +1,6 @@
 import psycopg2
 
-conn = psycopg2.connect(database="postgres", host="localhost", user="postgres", password="01031979", port="5432")
+conn = psycopg2.connect(database="", host="", user="", password="", port="")
 cur = conn.cursor()
 
 cur.execute('''CREATE TABLE IF NOT EXISTS person (
