@@ -12,6 +12,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css"
     />
+    <!-- leaflet css  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <title>Lesnoy.dom.perm - Аренда Дома Пермь</title>
   </head>
   <body>
@@ -24,14 +29,14 @@
       </div>
 
       <ul class="nav-links">
-        <li class="link"><a href="#">Главная</a></li>
         <li class="link">
-          <a method="get" href="{{ url_for('path') }}" target="_self"
-            >Как добраться</a
+          <a method="get" href="{{ url_for('index') }}" target="_self"
+            >Главная</a
           >
         </li>
+        <li class="link"><a href="#">Как добраться</a></li>
         <li class="link"><a href="#">Прайс лист</a></li>
-        <li class="link"><a href="{{ url_for('data') }}" target="_self">О нас</a></li>
+        <li class="link"><a href="#">О нас</a></li>
       </ul>
       <a
         method="get"
@@ -42,6 +47,11 @@
         Регистрация
       </a>
     </nav>
-    <header></header>
+    <header>
+      {% for house in houses %}
+      <h3>{{house}}</h3>
+      <hr />
+      {% endfor %}
+    </header>
   </body>
 </html>
