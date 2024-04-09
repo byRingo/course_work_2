@@ -74,29 +74,32 @@ export default function AuthorizationSection() {
   };
   return (
     <>
-      <Form className="form">
-        <InputSection
-          value={input.email}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="email"
-        />
-        {error.email && <span className="err">{error.email}</span>}
-        <InputSection
-          value={input.password}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="password"
-          type={"password"}
-        />
-        {error.password && <span className="err">{error.password}</span>}
-        <Button onClick={validateSubmit} type="submit">
-          Submit
-        </Button>
-      </Form>
-      <p>
-        Еще нет аккаунта? <Link to="/registration">Регистрация</Link>
-      </p>
+      <div className="auth-cont">
+        <p id="auth-text">Авторизация</p>
+        <Form className="form">
+          <InputSection
+            value={input.email}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            name="email"
+          />
+          {error.email && <span className="err">{error.email}</span>}
+          <InputSection
+            value={input.password}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            name="password"
+            type={"password"}
+          />
+          {error.password && <span className="err">{error.password}</span>}
+          <Button id="reg" onClick={validateSubmit} type="submit">
+            Отправить
+          </Button>
+        </Form>
+        <span className="registration-text">
+          Еще нет аккаунта? <Link to="/registration">Регистрация</Link>
+        </span>
+      </div>
     </>
   );
 }

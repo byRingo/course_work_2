@@ -1,7 +1,33 @@
-.form {
-    margin: 0 ;
-    display: block;
-}
-p {;
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    gap: 10px;
     font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+.auth-cont{
+    background: lavender;
+    width: 500px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+#reg{
+    background: #8673A1 ;
+    margin-bottom: 30px;
+}
+.registration-text{
+    margin: 110px;
+}
+#auth-text{
+    padding-top: 30px;
+    margin-left: 140px;
+    font-size: 30px;
+    width: 250px;
+    height: 10px;
 }

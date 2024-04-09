@@ -2,11 +2,10 @@ import InputSection from "../InputSection/InputSection.jsx";
 import { useEffect, useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
-
+import "./RegistrationSection.css";
 export default function RegistrationSection({}) {
   const [input, setInput] = useState({
     name: "",
-    surname: "",
     email: "",
     phone: "",
     password: "",
@@ -15,7 +14,6 @@ export default function RegistrationSection({}) {
 
   const [error, setError] = useState({
     name: "",
-    surname: "",
     email: "",
     phone: "",
     password: "",
@@ -45,21 +43,20 @@ export default function RegistrationSection({}) {
   useEffect(() => {
     axios
       .get(`https://660eb7bc356b87a55c4fde04.mockapi.io/api/v1/fakeBooking`)
-      .then((r) => console.log(r.data));
+      .then((r) => console.log(r.data))
+      .catch((err) => console.log("GET method : " + err));
   }, []);
 
   function postUser() {
-    axios.post(
-      `https://660eb7bc356b87a55c4fde04.mockapi.io/api/v1/fakeBooking`,
-      {
+    axios
+      .post(`https://660eb7bc356b87a55c4fde04.mockapi.io/api/v1/fakeBooking`, {
         name: input.name,
-        surname: input.surname,
         email: input.email,
         phone: input.phone,
         password: input.password,
         confirmPassword: input.confirmPassword,
-      },
-    );
+      })
+      .catch((err) => console.log("POST method : " + err));
   }
   const onInputChange = (e) => {
     console.log(e.target.value);
@@ -81,17 +78,12 @@ export default function RegistrationSection({}) {
             stateObj[name] = "Please enter your name.";
           }
           break;
-        case "surname":
-          if (!value) {
-            stateObj[name] = "Please enter your surname.";
-          }
-          break;
         case "email":
           if (!value) {
             stateObj[name] = "Please enter your email.";
           }
-          if (value.indexOf("@") === -1) {
-            stateObj[name] = "Email must contain @";
+          if (!/\S+@\S+\.\S+/.test(value)) {
+            stateObj[name] = "Wrong email";
           }
           break;
         case "phone":
@@ -132,57 +124,53 @@ export default function RegistrationSection({}) {
   };
   return (
     <>
-      <Form className="form">
-        <InputSection
-          value={input.name}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="name"
-        />
-        {error.name && <span className="err">{error.name}</span>}
-        <InputSection
-          value={input.surname}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="surname"
-        />
-        {error.surname && <span className="err">{error.surname}</span>}
-        <InputSection
-          value={input.email}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="email"
-        />
-        {error.email && <span className="err">{error.email}</span>}
-        <InputSection
-          value={input.phone}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="phone"
-        />
-        {error.phone && <span className="err">{error.phone}</span>}
-        <InputSection
-          value={input.password}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="password"
-          type={"password"}
-        />
-        {error.password && <span className="err">{error.password}</span>}
-        <InputSection
-          value={input.confirmPassword}
-          onChange={onInputChange}
-          onBlur={validateInput}
-          name="confirmPassword"
-          type={"password"}
-        />
-        {error.confirmPassword && (
-          <span className="err">{error.confirmPassword}</span>
-        )}
-        <Button onClick={validateSubmit} type="submit">
-          Submit
-        </Button>
-      </Form>
+      <div className="registration-cont">
+        <p id="auth-text">Регистрация</p>
+        <Form className="form">
+          <InputSection
+            value={input.name}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            name="name"
+          />
+          {error.name && <span className="err">{error.name}</span>}
+          <InputSection
+            value={input.email}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            name="email"
+          />
+          {error.email && <span className="err">{error.email}</span>}
+          <InputSection
+            value={input.phone}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            name="phone"
+          />
+          {error.phone && <span className="err">{error.phone}</span>}
+          <InputSection
+            value={input.password}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            name="password"
+            type={"password"}
+          />
+          {error.password && <span className="err">{error.password}</span>}
+          <InputSection
+            value={input.confirmPassword}
+            onChange={onInputChange}
+            onBlur={validateInput}
+            name="confirmPassword"
+            type={"password"}
+          />
+          {error.confirmPassword && (
+            <span className="err">{error.confirmPassword}</span>
+          )}
+          <Button id="reg" onClick={validateSubmit} type="submit">
+            Отправить
+          </Button>
+        </Form>
+      </div>
     </>
   );
 }

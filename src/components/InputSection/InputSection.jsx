@@ -1,3 +1,4 @@
+import "./InputSection.css";
 export default function InputSection({ onChange, onBlur, value, name, type }) {
   return (
     <input

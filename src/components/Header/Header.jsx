@@ -1,8 +1,7 @@
 import logo from "/vite.svg";
 import "./Header.css";
 import Button from "../Button/Button.jsx";
-import { useState } from "react";
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Header({ active, onChange }) {
   return (
     <header>

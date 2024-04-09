@@ -1,0 +1,10 @@
+.err {
+    font-size: 14px;
+    padding: 5px;
+    color: #D0021B;
+    font-weight: bold;
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+}
