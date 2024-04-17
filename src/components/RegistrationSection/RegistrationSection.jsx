@@ -1,9 +1,14 @@
 import InputSection from "../InputSection/InputSection.jsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
 import "./RegistrationSection.css";
-export default function RegistrationSection({}) {
+import { Navigate } from "react-router-dom";
+import { useUserContext } from "../../UserContextProvider.jsx";
+
+export default function RegistrationSection() {
+  const { setUserForm } = useUserContext();
+  const [isRegistered, setIsRegistered] = useState(false);
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -40,26 +45,22 @@ export default function RegistrationSection({}) {
       postUser();
     }
   }
-  useEffect(() => {
-    axios
-      .get(`https://660eb7bc356b87a55c4fde04.mockapi.io/api/v1/fakeBooking`)
-      .then((r) => console.log(r.data))
-      .catch((err) => console.log("GET method : " + err));
-  }, []);
 
   function postUser() {
     axios
-      .post(`https://660eb7bc356b87a55c4fde04.mockapi.io/api/v1/fakeBooking`, {
-        name: input.name,
+      .post("http://127.0.0.1:8000/auth/register", {
+        username: input.name,
         email: input.email,
-        phone: input.phone,
+        phone_number: input.phone,
         password: input.password,
-        confirmPassword: input.confirmPassword,
       })
-      .catch((err) => console.log("POST method : " + err));
+      .then((r) => console.log("User successfully added", r))
+      .then(() => alert("Вы успешно зарегистрированы"))
+      .then(setUserForm([]))
+      .then(setIsRegistered(true))
+      .catch(() => console.log("User with this email already exist"));
   }
   const onInputChange = (e) => {
-    console.log(e.target.value);
     const { name, value } = e.target;
     setInput((prev) => ({
       ...prev,
@@ -170,6 +171,7 @@ export default function RegistrationSection({}) {
             Отправить
           </Button>
         </Form>
+        {isRegistered && <Navigate to="/authorization" replace={true} />}
       </div>
     </>
   );

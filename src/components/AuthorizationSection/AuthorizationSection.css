@@ -15,9 +15,9 @@
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 5px;
 }
 #reg{
+    margin-top: 1rem;
     background: #8673A1 ;
     margin-bottom: 30px;
 }

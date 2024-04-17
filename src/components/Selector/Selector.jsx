@@ -1,13 +1,23 @@
 import "./Selector.css";
-export default function Selector({ arr }) {
+import { useState } from "react";
+export default function Selector({ arr, onChange }) {
+  const [selectedOption, setSelectedOption] = useState(arr[0]);
   return (
     <>
       <div className="selectorContainer">
         <p>Количество спальных мест</p>
-        <select name="" id="" className="selector">
-          <option>Все домики</option>
+        <select
+          value={selectedOption}
+          onChange={(e) => {
+            setSelectedOption(e.target.value);
+            onChange(e.target.value);
+          }}
+          className="selector"
+        >
           {arr.map((cur) => (
-            <option value={cur}>{cur}</option>
+            <option key={cur - 1} value={cur}>
+              {cur}
+            </option>
           ))}
         </select>
       </div>

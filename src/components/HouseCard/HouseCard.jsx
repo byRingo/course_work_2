@@ -1,6 +1,7 @@
 import "./HouseCard.css";
 import Button from "../Button/Button.jsx";
-export default function HouseCard({ img, quantity, price, adress }) {
+
+export default function HouseCard({ img, quantity, price, address, onClick }) {
   return (
     <>
       <div className="card">
@@ -11,7 +12,13 @@ export default function HouseCard({ img, quantity, price, adress }) {
             src="src/assets/bed-svgrepo-com.svg"
             alt="Количество спальных мест"
           ></img>
-          <p style={{ padding: "20px" }}>{quantity}</p>
+          <p
+            style={{
+              marginTop: "5px",
+            }}
+          >
+            {quantity}
+          </p>
         </div>
         <div className="cell" style={{ paddingRight: "50px" }}>
           <p>Цена за ночь</p>
@@ -19,9 +26,16 @@ export default function HouseCard({ img, quantity, price, adress }) {
         </div>
         <div className="cell">
           <p>Адрес</p>
-          <p>{adress}</p>
+          <p>{address}</p>
         </div>
-        <Button>Забронировать</Button>
+        <Button
+          style={{ marginTop: "auto", marginBottom: "auto" }}
+          onClick={() => {
+            onClick();
+          }}
+        >
+          Забронировать
+        </Button>
       </div>
     </>
   );

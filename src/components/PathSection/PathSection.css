@@ -10,6 +10,12 @@ p{
     margin-right: auto;
     font-size: 18px;
 }
+#text {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+}
 h1{
     margin-left: 100px;
 }

@@ -1,9 +1,14 @@
 header {
     height: 100px;
     display:flex;
-    padding: 0 2rem;
-    justify-content: space-between;
+    margin-top: -10px;
+    margin-right: -20px;
+    margin-left: -20px;
+    justify-content: space-evenly;
     align-items: center;
+    border-bottom: 1px solid black;
+    background:#fff8dc;
+    box-shadow: 0 0 3px #888;
 }
 
 .nav {
@@ -12,4 +17,9 @@ header {
     justify-content: space-evenly;
     align-items: center;
     gap: 30px;
+}
+
+#logo {
+    width: 60px;
+    border-radius: 5px;
 }

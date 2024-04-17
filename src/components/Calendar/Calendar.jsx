@@ -3,15 +3,13 @@ import { RangeDatePicker } from "@y0c/react-datepicker";
 import "@y0c/react-datepicker/assets/styles/calendar.scss";
 import "./Calendar.css";
 
-export default function Calendar() {
-  const onChangeValue = (date) => {
-    const dateValue = date.toDate();
-    console.log(dateValue);
-  };
+export default function Calendar({ onChange }) {
   const onChangeRangeValue =
-    (title) =>
-    (...date) =>
-      console.log(date);
+    () =>
+    (...date) => {
+      onChange(date);
+    };
+
   return (
     <div className="calendarContainer">
       <p>Дата</p>

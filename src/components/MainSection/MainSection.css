@@ -1,18 +1,24 @@
 .interaction-container{
     padding: 3dvh 3dvh 3dvh 10dvh;
     display: flex;
+    width: 800px;
     gap:100px;
-    margin: 50px 50dvh 100px;
-    border: 1px black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
     background: lavender;
-    border-radius: 10px;
+    box-shadow: 0 0 3px #888;
 }
 .components-container{
     background: lavender;
-    margin-top: 100px;
-    border-radius: 20px;
+    margin-top: 50px;
     padding: 50px;
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+#submit-button{
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #8673A1 ;
 }

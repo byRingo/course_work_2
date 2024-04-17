@@ -1,5 +1,9 @@
 .selectorContainer{
+    width: 200px;
     font-size: 14px;
+}
+.selectorContainer p {
+    width: 300px;
 }
 .selector{
     height: 40px;
