@@ -1,0 +1,17 @@
+.username {
+    color: black;
+    padding: 40px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.info-container{
+    padding: 40px;
+
+}
+.info-container p{
+    font-size: 22px;
+}
+.footer{
+    padding:40px;
+}

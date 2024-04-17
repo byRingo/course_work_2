@@ -1,0 +1,100 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    margin: 2rem;
+    transform-style: preserve-3d;
+    transform: perspective(100rem);
+
+    cursor: pointer;
+}
+
+.container {
+    --rX: 0;
+    --rY: 0;
+    --bX: 50%;
+    --bY: 80%;
+
+    width: 15rem;
+    height: 15rem;
+    border-radius: 1.6rem;
+    padding: 4rem;
+
+    display: flex;
+    align-items: flex-end;
+
+    position: relative;
+    transform: rotateX(calc(var(--rX) * 1deg)) rotateY(calc(var(--rY) * 1deg));
+
+    background: url("https://sun9-80.userapi.com/impg/GnrvmyPzx4PLUy_5NBlZOGWeQb_jJEIei_tolA/Jk_cZox_o0A.jpg?size=1597x2160&quality=95&sign=2475fc445cdde105b8709d7c4079315a&type=album");
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 3rem .5rem hsla(0, 0%, 0%, .2);
+
+    transition: transform .6s 1s;
+}
+
+.container::before,
+.container::after {
+    content: "";
+
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #fff;
+
+    position: absolute;
+    z-index: 2;
+
+    opacity: .3;
+    transition: .3s;
+}
+
+.container::before {
+    top: 2rem;
+    right: 2rem;
+
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.container::after {
+    bottom: 2rem;
+    left: 2rem;
+
+    border-top-width: 0;
+    border-right-width: 0;
+}
+
+.container--active {
+    transition: none;
+}
+
+.container--2 {
+    background: url("https://sun9-6.userapi.com/impg/yjVuQNr3iZlAA_gDMUi-TJT36MUW18T3ddOA_g/tB3YgH8iyf0.jpg?size=1620x2160&quality=95&sign=61c3b62b71d52287a1ef3f639396034c&type=album");
+    background-position: center;
+    background-size: cover;
+}
+
+.container--3 {
+    background: url("https://sun9-35.userapi.com/impg/MFKcm06pdXeVzJ5fCC1HzmT0rmDXTkQfHwZR-w/EKkTndUf9Us.jpg?size=1620x2160&quality=95&sign=a13ac0372fcdd060ca88aa819d8f8f29&type=album");
+    background-position: center;
+    background-size: cover;
+}
+
+.container p {
+    color: hsla(0, 0%, 100%, .6);
+    font-size: 2.2rem;
+}
+
+.wrap:hover .container::before,
+.wrap:hover .container::after {
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+}
