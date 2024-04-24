@@ -1,6 +1,6 @@
-Booking houses app
+# Booking houses app
 
-Web application for booking houses.
+## Web application for booking houses.
 
 Frontend: React, axios, leaflet, Vite
 
