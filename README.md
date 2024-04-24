@@ -6,7 +6,7 @@ Frontend: React, axios, leaflet, Vite
 
 Backend: FastAPI, SQLAlchemy
 
-HOW SETUP
+## HOW SETUP
 1. Open your IDE and clone this repository to your PC.
 2. run "npm install" in your terminal.
 3. run "npm run dev" in your terminal.
