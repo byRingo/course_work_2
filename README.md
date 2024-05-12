@@ -4,7 +4,7 @@
 
 Frontend: React, axios, leaflet, Vite
 
-Backend: FastAPI, SQLAlchemy
+Backend: FastAPI, SQLAlchemy, PostgreSQL
 
 ## HOW SETUP
 1. Open your IDE and clone this repository to your PC.
